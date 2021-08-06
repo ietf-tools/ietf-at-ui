@@ -2,7 +2,7 @@ document.getElementById('buttonSubmit').onclick = function() {
   const formData = new FormData();
   formData.append('file', document.getElementById('formFile').files[0]);
 
-  const apiCall = 'http://devbox.amsl.com:55555/api/render/' + document.getElementById('selectFormat').value;
+  const apiCall = 'https://devbox.amsl.com:55555/api/render/' + document.getElementById('selectFormat').value;
 
   const request = new Request(apiCall, {
     method: 'POST',
