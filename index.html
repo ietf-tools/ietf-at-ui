@@ -1,69 +1,81 @@
+<!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>IETF @ (Experimental)</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <ul class="nav justify-content-end">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://www.ietf.org/">IETF</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://datatracker.ietf.org/">Datatracker</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Login</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <h1 class="text-center">IETF @ (<small class="text-muted">Author Tools</small>)</h1>
-      </div>
-      <div class="row">
-        <div class="alert alert-danger d-flex align-items-center alert-dismissible fade show" role="alert">
-          <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-              <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-              </symbol>
-          </svg>
-          <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-          <div>
-            This is an <strong>experimantal</strong> service.<br />
-            Reach out to IETF tools team for any questions and comments. :)
+    <header>
+        <div class="container">
+          <div class="row">
+            <ul class="nav justify-content-end">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://www.ietf.org/">IETF</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://datatracker.ietf.org/">Datatracker</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Login</a>
+              </li>
+            </ul>
           </div>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="row">
+          <h1 class="text-center">IETF @ (<small class="text-muted">Author Tools</small>)</h1>
+        </div>
+        <div class="row">
+          <div class="alert alert-danger d-flex align-items-center alert-dismissible fade show" role="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                </symbol>
+            </svg>
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+            <div>
+              This is an <strong>experimantal</strong> service.<br />
+              Reach out to IETF tools team for any questions and comments. :)
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="formFile" class="form-label">Select a Kramdown-rfc2629 (.md, .kmd), xml2rfc v2/v3 (.xml) file</label>
+            <input class="form-control form-control-lg" id="formFile" type="file" accept=".xml,.md,.mkd">
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="selectFormat" class="form-label">Select required format</label>
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg" id="selectFormat">
+              <option value="text" selected>TEXT</option>
+              <option value="xml">XML</option>
+              <option value="html">HTML</option>
+              <option value="pdf">PDF</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="d-grid gap-2">
+            <button type="button" class="btn btn-primary btn-lg" id="buttonSubmit">Submit</button>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div>
-          <label for="formFile" class="form-label">Select a Kramdown-rfc2629 (.md, .kmd), xml2rfc v2/v3 (.xml) file</label>
-          <input class="form-control form-control-lg" id="formFile" type="file" accept=".xml,.md,.mkd">
-        </div>
+    </main>
+    <footer>
+      <div class="vr"></div>
+      <div class="text-center">
+        <p><small><a href="https://github.com/kesara/ietf-at">IETF @ (github repository)</a> | <a href="https://github.com/kesara/ietf-at-ui">IETF @ UI (github repository)</a> | <a href="https://www.ietf.org/">IETF</a> | <a href="https://github.com/kesara/ietf-at-ui/blob/main/LICENSE">LICENSE</a></small></p>
       </div>
-      <div class="row">
-        <div>
-          <label for="selectFormat" class="form-label">Select required format</label>
-          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg" id="selectFormat">
-            <option value="text" selected>TEXT</option>
-            <option value="xml">XML</option>
-            <option value="html">HTML</option>
-            <option value="pdf">PDF</option>
-          </select>
-        </div>
-      </div>
-      <div class="row">
-        <div class="d-grid gap-2">
-          <button type="button" class="btn btn-primary btn-lg" id="buttonSubmit">Submit</button>
-        </div>
-      </div>
-    </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
   </body>
 </html>
