@@ -49,13 +49,13 @@
         <div class="row">
           <div>
             <label for="formFile" class="form-label">Select a Kramdown-rfc2629 (.md, .kmd), xml2rfc v2/v3 (.xml) file</label>
-            <input class="form-control form-control-lg" id="formFile" type="file" accept=".xml,.md,.mkd">
+            <input class="form-control form-control-lg" id="formFile" type="file" accept=".xml,.md,.mkd" required>
           </div>
         </div>
         <div class="row">
           <div>
             <label for="selectFormat" class="form-label">Select required format</label>
-            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg" id="selectFormat">
+            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg" id="selectFormat" required>
               <option value="text" selected>TEXT</option>
               <option value="xml">XML</option>
               <option value="html">HTML</option>
@@ -73,9 +73,18 @@
     <footer>
       <div class="vr"></div>
       <div class="text-center">
-        <p><small><a href="https://github.com/kesara/ietf-at">IETF @ (github repository)</a> | <a href="https://github.com/kesara/ietf-at-ui">IETF @ UI (github repository)</a> | <a href="https://www.ietf.org/">IETF</a> | <a href="https://github.com/kesara/ietf-at-ui/blob/main/LICENSE">LICENSE</a></small></p>
+        <p><small>
+          <a href="https://github.com/kesara/ietf-at">IETF @ (github repository)</a> |
+          <a href="https://github.com/kesara/ietf-at-ui">IETF @ UI (github repository)</a> |
+          <a href="https://www.ietf.org/">IETF</a> |
+          <a href="https://github.com/kesara/ietf-at-ui/blob/main/LICENSE">LICENSE</a>
+        </small></p>
       </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"></script>
+    <script src="scripts/main.js"></script>
   </body>
 </html>
