@@ -1,4 +1,11 @@
 # ietf-at-ui
 IETF @ (Author Tools) UI
 
-WEB: [https://at.fq.nz/](https://at.fq.nz/)
+## Running web server
+```
+docker-compose up
+```
+
+## Testing
+
+Visit (http://localhost:8080/)[http://localhost:8080/]
