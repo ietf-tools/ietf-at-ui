@@ -34,7 +34,7 @@ document.getElementById('buttonSubmit').onclick = function() {
 
   reset();
 
-  const apiCall = 'http://devbox.amsl.com:55555/api/render/' + format;
+  const apiCall = 'http://devbox.amsl.com:8888/api/render/' + format;
 
   const request = new Request(apiCall, {
     method: 'POST',
