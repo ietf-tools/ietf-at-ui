@@ -1,5 +1,6 @@
 const alertError  = document.getElementById('alertError');
 const buttonDownload = document.getElementById('buttonDownload');
+const buttonOpen = document.getElementById('buttonOpen');
 const formFile = document.getElementById('formFile');
 const messageError = document.getElementById('messageError');
 const selectFormat = document.getElementById('selectFormat');
@@ -22,6 +23,8 @@ function reset() {
   buttonDownload.style.display = 'none';
   buttonDownload.setAttribute('download', '');
   buttonDownload.href = '#';
+  buttonOpen.style.display = 'none';
+  buttonOpen.href = '#';
   messageError.innerHTML = '';
 }
 
@@ -61,6 +64,9 @@ document.getElementById('buttonSubmit').onclick = function() {
         buttonDownload.style.display = 'block';
         buttonDownload.setAttribute('download', getDownloadFilename(file, format));
         buttonDownload.href = data;
+        buttonOpen.style.display = 'block';
+        buttonOpen.setAttribute('href', getDownloadFilename(file, format));
+        buttonOpen.href = data;
       }
     });
 }
