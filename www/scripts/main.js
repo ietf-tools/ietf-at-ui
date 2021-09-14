@@ -1,4 +1,6 @@
 const alertError  = document.getElementById('alertError');
+const buttonSubmit = document.getElementById('buttonSubmit');
+const buttonRendering = document.getElementById('buttonRendering');
 const buttonDownload = document.getElementById('buttonDownload');
 const buttonOpen = document.getElementById('buttonOpen');
 const formFile = document.getElementById('formFile');
@@ -20,6 +22,8 @@ function getDownloadFilename(file, format) {
 
 function reset() {
   alertError.style.display = 'none';
+  buttonSubmit.style.display = 'block';
+  buttonRendering.style.display = 'none';
   buttonDownload.style.display = 'none';
   buttonDownload.setAttribute('download', '');
   buttonDownload.href = '#';
@@ -28,14 +32,16 @@ function reset() {
   messageError.innerHTML = '';
 }
 
-document.getElementById('buttonSubmit').onclick = function() {
+buttonSubmit.onclick = function() {
+  reset();
+  buttonSubmit.style.display = 'none';
+  buttonRendering.style.display = 'block';
+
   const formData = new FormData();
   const format = selectFormat.value;
   const file = formFile.files[0];
 
   formData.append('file', file);
-
-  reset();
 
   const apiCall = 'https://author-tools.ietf.org/api/render/' + format;
 
@@ -57,6 +63,8 @@ document.getElementById('buttonSubmit').onclick = function() {
     })
     .then(data => {
       try {
+        buttonRendering.style.display = 'none';
+        buttonSubmit.style.display = 'block';
         data = JSON.parse(data);
         messageError.innerHTML = data.error;
       } catch (error) {
