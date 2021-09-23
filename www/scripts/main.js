@@ -43,7 +43,7 @@ buttonSubmit.onclick = function() {
 
   formData.append('file', file);
 
-  const apiCall = 'https://author-tools.ietf.org/api/render/' + format;
+  const apiCall = 'https://author-tools.ietf.org/api2/render/' + format;
 
   const request = new Request(apiCall, {
     method: 'POST',
