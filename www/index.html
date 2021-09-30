@@ -66,11 +66,11 @@
         <div class="row">
           <div>
             <label for="formFile" class="form-label">
-              This service allows you to convert an Internet-Draft from one format into another, including rendered outputs. In the background this service uses id2xml, kramdown-rfc2629 and xml2rfc, chaining them together as needed to deliver the requested conversion.<br />
+              This service allows you to convert an Internet-Draft from one format into another, including rendered outputs. In the background this service uses id2xml, kramdown-rfc2629, mmark and xml2rfc, chaining them together as needed to deliver the requested conversion.<br />
               The input must be a valid Internet-Draft in one of the following formats:
               <ul>
                 <li>XML as .xml (both v3 and v2 supported)</li>
-                <li>Markdown as .md or .mkd (only kramdown-rfc2629 dialect supported)</li>
+                <li>Markdown as .md or .mkd (kramdown-rfc2629 &amp; mmark dialects are supported)</li>
                 <li>Plain text as .txt</li>
               </ul>
             </label>
@@ -117,7 +117,8 @@
         <p><small>
           <a href="https://pypi.org/project/xml2rfc/">xml2rfc 3.10.0</a> |
           <a href="https://github.com/cabo/kramdown-rfc2629">kramdown-rfc2629 1.5.6</a> |
-          <a href="https://pypi.org/project/id2xml/">id2xml 1.5.0</a>
+          <a href="https://pypi.org/project/id2xml/">id2xml 1.5.0</a> |
+          <a href="https://github.com/mmarkdown/mmark">mmark 2.2.16</a>
         </small></p>
       </div>
     </footer>
