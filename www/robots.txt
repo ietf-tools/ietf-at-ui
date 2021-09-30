@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /api2/
+
+Sitemap: https://author-tools.ietf.org/sitemap.xml
+
+Host: author-tools.ietf.org
