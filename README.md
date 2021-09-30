@@ -17,4 +17,4 @@ See [contributing guide](CONTRIBUTING.md).
 ## License
 
 * [IETF @ UI - License](LICENSE)
-* [Swagger UI - License](www/api/LICENSE)
+* [Swagger UI - License](www/doc/LICENSE)
