@@ -4,7 +4,7 @@ const messageError = document.getElementById('messageError');
 alertError.style.display = 'none';
 messageError.innerHTML = '';
 
-const apiCall = 'https://author-tools.ietf.org/api2/version/';
+const apiCall = 'https://author-tools.ietf.org/api2/version';
 
 const request = new Request(apiCall, {
   method: 'GET',
