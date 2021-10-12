@@ -47,7 +47,7 @@
             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
             <div>
               This is an <strong>experimental</strong> service.<br />
-              Reach out to IETF tools team for any questions and comments. :)
+              See <a href="/about.html#howto-report-bugs">how to report bugs and provide comments</a>.
             </div>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
@@ -67,15 +67,16 @@
         </div>
         <div class="row">
           <div>
-            <label for="formFile" class="form-label">
+            <p>
               This service allows you to convert an Internet-Draft from one format into another, including rendered outputs. In the background this service uses id2xml, kramdown-rfc2629, mmark and xml2rfc, chaining them together as needed to deliver the requested conversion.<br />
               The input must be a valid Internet-Draft in one of the following formats:
               <ul>
-                <li>XML as .xml (both v3 and v2 supported)</li>
-                <li>Markdown as .md or .mkd (kramdown-rfc2629 &amp; mmark dialects are supported)</li>
+                <li>XML as .xml (both <a href="https://www.rfc-editor.org/info/rfc7991">v3</a> and <a href="https://www.rfc-editor.org/info/rfc7749">v2</a> supported)</li>
+                <li>Markdown as .md or .mkd (<a href="https://github.com/cabo/kramdown-rfc2629">kramdown-rfc2629</a> and <a href="https://mmark.miek.nl/">mmark</a> dialects are supported)</li>
                 <li>Plain text as .txt</li>
               </ul>
-            </label>
+            </p>
+            <label for="formFile" class="form-label">Input file</label>
             <input class="form-control form-control-lg" id="formFile" type="file" accept=".xml,.md,.mkd,.txt" required>
           </div>
         </div>
@@ -113,7 +114,8 @@
           <a href="https://github.com/ietf-tools/ietf-at">IETF @ (github repository)</a> |
           <a href="https://github.com/ietf-tools/ietf-at-ui">IETF @ UI (github repository)</a> |
           <a href="https://www.ietf.org/">IETF</a> |
-          <a href="https://github.com/ietf-tools/ietf-at-ui/blob/main/LICENSE">LICENSE</a>
+          <a href="https://github.com/ietf-tools/ietf-at-ui/blob/main/LICENSE">LICENSE</a> |
+          <a href="/about.html#howto-report-bugs">Report a bug</a>
         </small></p>
       </div>
     </footer>
