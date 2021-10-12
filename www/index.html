@@ -67,7 +67,7 @@
         </div>
         <div class="row">
           <div>
-            <label for="formFile" class="form-label">
+            <p>
               This service allows you to convert an Internet-Draft from one format into another, including rendered outputs. In the background this service uses id2xml, kramdown-rfc2629, mmark and xml2rfc, chaining them together as needed to deliver the requested conversion.<br />
               The input must be a valid Internet-Draft in one of the following formats:
               <ul>
@@ -75,7 +75,8 @@
                 <li>Markdown as .md or .mkd (kramdown-rfc2629 &amp; mmark dialects are supported)</li>
                 <li>Plain text as .txt</li>
               </ul>
-            </label>
+            </p>
+            <label for="formFile" class="form-label">Input file</label>
             <input class="form-control form-control-lg" id="formFile" type="file" accept=".xml,.md,.mkd,.txt" required>
           </div>
         </div>
