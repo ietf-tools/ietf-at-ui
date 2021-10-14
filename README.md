@@ -16,5 +16,5 @@ See [contributing guide](CONTRIBUTING.md).
 
 ## License
 
-* [IETF @ UI - License](LICENSE)
+* [IETF Author Tools UI - License](LICENSE)
 * [Swagger UI - License](www/doc/LICENSE)
