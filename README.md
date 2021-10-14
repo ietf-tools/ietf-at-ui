@@ -1,5 +1,5 @@
 # ietf-at-ui
-IETF @ (Author Tools) UI
+IETF Author Tools UI
 
 ## Running web server
 ```
