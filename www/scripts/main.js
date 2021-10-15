@@ -6,6 +6,7 @@ const buttonOpen = document.getElementById('buttonOpen');
 const formFile = document.getElementById('formFile');
 const messageError = document.getElementById('messageError');
 const selectFormat = document.getElementById('selectFormat');
+const alertExperimental = document.getElementById('alertExperimental');
 
 reset();
 
@@ -19,6 +20,12 @@ function getDownloadFilename(file, format) {
 
   return file.name + '.' + format;
 }
+
+window.setTimeout(function() {
+    var bsAlertExperimental = new bootstrap.Alert(alertExperimental);
+    console.log(bsAlertExperimental);
+    bsAlertExperimental.close();
+}, 4000);
 
 function reset() {
   alertError.style.display = 'none';
