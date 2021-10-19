@@ -1,17 +1,18 @@
 const alertError  = document.getElementById('alertError');
-const buttonSubmit = document.getElementById('buttonSubmit');
-const buttonSubmitting = document.getElementById('buttonSubmitting');
 const buttonDownload = document.getElementById('buttonDownload');
 const buttonOpen = document.getElementById('buttonOpen');
 const formFile = document.getElementById('formFile');
 const messageError = document.getElementById('messageError');
-const selectFormat = document.getElementById('selectFormat');
 const alertExperimental = document.getElementById('alertExperimental');
+const renderButtons = document.getElementsByClassName('render-btn');
 
 reset();
 
 formFile.addEventListener('change', reset);
-selectFormat.addEventListener('change', reset);
+
+for (let button of renderButtons) {
+  button.addEventListener("click", render);
+}
 
 function getDownloadFilename(file, format) {
   if (format == 'text') {
@@ -29,23 +30,37 @@ window.setTimeout(function() {
 
 function reset() {
   alertError.style.display = 'none';
-  buttonSubmit.style.display = 'block';
-  buttonSubmitting.style.display = 'none';
   buttonDownload.style.display = 'none';
   buttonDownload.setAttribute('download', '');
   buttonDownload.href = '#';
   buttonOpen.style.display = 'none';
   buttonOpen.href = '#';
   messageError.innerHTML = '';
+  resetButtons();
 }
 
-buttonSubmit.onclick = function() {
+function resetButtons() {
+  for (let button of renderButtons) {
+    button.disabled = false;
+    button.innerText = button.dataset.title;
+  }
+}
+
+function disableButtons() {
+  for (let button of renderButtons) {
+    button.disabled = true;
+  }
+}
+
+function render(event) {
   reset();
-  buttonSubmit.style.display = 'none';
-  buttonSubmitting.style.display = 'block';
+
+  var button = event.target || event.srcElement;
+  button.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>' + button.innerHTML;
+  disableButtons();
 
   const formData = new FormData();
-  const format = selectFormat.value;
+  const format = button.value;
   const file = formFile.files[0];
 
   formData.append('file', file);
@@ -70,8 +85,7 @@ buttonSubmit.onclick = function() {
     })
     .then(data => {
       try {
-        buttonSubmitting.style.display = 'none';
-        buttonSubmit.style.display = 'block';
+        resetButtons();
         data = JSON.parse(data);
         messageError.innerHTML = data.error;
       } catch (error) {
