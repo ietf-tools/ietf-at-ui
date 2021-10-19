@@ -53,7 +53,7 @@
           </div>
         </div>
         <div class="row" id="alertError">
-          <div class="alert alert-danger d-flex align-items-center alert-dismissible fade show" role="alert">
+          <div class="alert alert-danger d-flex align-items-center fade show" role="alert">
             <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
                 <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
                   <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
@@ -62,7 +62,6 @@
             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
             <div class="error-message" id="messageError">
             </div>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
         </div>
         <div class="row">
@@ -80,24 +79,16 @@
             <input class="form-control form-control-lg" id="formFile" type="file" accept=".xml,.md,.mkd,.txt" required>
           </div>
         </div>
-        <div class="row">
-          <div>
-            <label for="selectFormat" class="form-label">Select required format</label>
-            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg" id="selectFormat" required>
-              <option value="text" selected>TEXT</option>
-              <option value="xml">XML</option>
-              <option value="html">HTML</option>
-              <option value="pdf">PDF</option>
-            </select>
+        <div class="row mt-2">
+          <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <button class="render-btn btn btn-primary btn-lg flex-grow-1" type="button" value="text" data-title="Text">Text</button>
+            <button class="render-btn btn btn-primary btn-lg flex-grow-1" type="button" value="html" data-title="HTML">HTML</button>
+            <button class="render-btn btn btn-primary btn-lg flex-grow-1" type="button" value="xml" data-title="XML">XML</button>
+            <button class="render-btn btn btn-primary btn-lg flex-grow-1" type="button" value="pdf" data-title="PDF">PDF</button>
           </div>
         </div>
-        <div class="row">
+        <div class="row mt-2">
           <div class="d-grid gap-2">
-            <button class="btn btn-primary btn-lg" type="button" id="buttonSubmitting"  disabled>
-              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-              Submitting...
-            </button>
-            <button type="button" class="btn btn-primary btn-lg" id="buttonSubmit">Submit</button>
             <a href="#" class="btn btn-success btn-lg" id="buttonDownload">Download</a>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
               <a href="#" class="btn btn-link" id="buttonOpen">Open in web browser</a>
@@ -107,8 +98,7 @@
       </div>
     </main>
     <footer>
-      <div class="vr"></div>
-      <div class="text-center">
+      <div class="text-center mt-3">
         <p><small>
           <a href="/about.html">About</a> |
           <a href="https://github.com/ietf-tools/ietf-at">Author Tools API (github repository)</a> |
