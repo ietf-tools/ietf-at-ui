@@ -18,6 +18,7 @@ fetch(request)
     document.getElementById('spanKramdown').innerHTML = json.versions['kramdown-rfc2629'];
     document.getElementById('spanMmark').innerHTML = json.versions.mmark;
     document.getElementById('spanId2xml').innerHTML = json.versions.id2xml;
+    document.getElementById('spanIdnits').innerHTML = json.versions.idnits;
     document.getElementById('spanWeasyprint').innerHTML = json.versions.weasyprint;
     document.getElementById('spanGoat').innerHTML = json.versions.goat;
   })

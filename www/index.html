@@ -81,10 +81,11 @@
         </div>
         <div class="row mt-2">
           <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-            <button class="render-btn btn btn-primary btn-lg flex-grow-1" type="button" value="text" data-title="Text">Text</button>
-            <button class="render-btn btn btn-primary btn-lg flex-grow-1" type="button" value="html" data-title="HTML">HTML</button>
-            <button class="render-btn btn btn-primary btn-lg flex-grow-1" type="button" value="xml" data-title="XML">XML</button>
-            <button class="render-btn btn btn-primary btn-lg flex-grow-1" type="button" value="pdf" data-title="PDF">PDF</button>
+            <button class="render-btn action-btn btn btn-primary btn-lg flex-grow-1" type="button" value="text" data-title="Text">Text</button>
+            <button class="render-btn action-btn btn btn-primary btn-lg flex-grow-1" type="button" value="html" data-title="HTML">HTML</button>
+            <button class="render-btn action-btn btn btn-primary btn-lg flex-grow-1" type="button" value="xml" data-title="XML">XML</button>
+            <button class="render-btn action-btn btn btn-primary btn-lg flex-grow-1" type="button" value="pdf" data-title="PDF">PDF</button>
+            <button class="validate-btn action-btn btn btn-success btn-lg flex-grow-1" type="button" data-title="Validate" id="buttonValidate">Validate</button>
           </div>
         </div>
         <div class="row mt-2">
@@ -92,6 +93,46 @@
             <a href="#" class="btn btn-success btn-lg" id="buttonDownload">Download</a>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
               <a href="#" class="btn btn-link" id="buttonOpen">Open in web browser</a>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="accordion" id="accordionValidation">
+            <div class="accordion-item" id="accordionItemWarnings">
+              <h2 class="accordion-header" id="panelsWarningsHeading">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsWarnings" aria-expanded="true" aria-controls="panelsWarnings">
+                  Warnings
+                </button>
+              </h2>
+              <div id="panelsWarnings" class="accordion-collapse collapse show" aria-labelledby="panelsWarningsHeading">
+                <div class="accordion-body">
+                  <ul id="listWarnings"></ul>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item" id="accordionItemErrors">
+              <h2 class="accordion-header" id="panelsErrorsHeading">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsErrors" aria-expanded="true" aria-controls="panelsErrors">
+                  Errors
+                </button>
+              </h2>
+              <div id="panelsErrors" class="accordion-collapse collapse show" aria-labelledby="panelsErrorsHeading">
+                <div class="accordion-body">
+                  <ul id="listErrors"></ul>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item" id="accordionItemIdnits">
+              <h2 class="accordion-header" id="panelsIdnitsHeading">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsIdnits" aria-expanded="true" aria-controls="panelsIdnits">
+                  Idnits
+                </button>
+              </h2>
+              <div id="panelsIdnits" class="accordion-collapse collapse show" aria-labelledby="panelsIdnitsHeading">
+                <div class="accordion-body">
+                  <pre id="preIdnits" class="pre-scrollable"></pre>
+                </div>
+              </div>
             </div>
           </div>
         </div>
