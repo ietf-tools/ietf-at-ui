@@ -160,7 +160,7 @@ function validate() {
           accordionItemErrors.style.display = 'block';
           for (var item in json.errors) {
             var li  = document.createElement('li');
-            li.innerText = json.warnings[i];
+            li.innerText = json.errors[i];
             listErrors.appendChild(li);
           }
         }
