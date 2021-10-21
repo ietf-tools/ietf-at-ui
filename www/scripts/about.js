@@ -20,6 +20,7 @@ fetch(request)
     document.getElementById('spanId2xml').innerHTML = json.versions.id2xml;
     document.getElementById('spanIdnits').innerHTML = json.versions.idnits;
     document.getElementById('spanWeasyprint').innerHTML = json.versions.weasyprint;
+    document.getElementById('spanAasvg').innerHTML = json.versions.aasvg;
     document.getElementById('spanGoat').innerHTML = json.versions.goat;
   })
   .catch(error => {
