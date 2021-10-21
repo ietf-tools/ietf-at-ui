@@ -158,7 +158,7 @@ function validate() {
         }
         if (json.errors && json.errors.length > 0) {
           accordionItemErrors.style.display = 'block';
-          for (var item in json.errors) {
+          for (var i in json.errors) {
             var li  = document.createElement('li');
             li.innerText = json.errors[i];
             listErrors.appendChild(li);
