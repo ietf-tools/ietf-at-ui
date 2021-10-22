@@ -45,9 +45,16 @@
 
   <body>
     <header>
-        <div class="container">
-          <div class="row">
-            <ul class="nav justify-content-end">
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">
+           <img alt="IETF Logo" src="https://www.ietf.org/lib/dt/7.39.0/ietf/images/ietflogo-small-transparent.png">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2">
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="/">Home</a>
               </li>
@@ -60,12 +67,10 @@
               <li class="nav-item">
                 <a class="nav-link" href="https://datatracker.ietf.org/">Datatracker</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Login</a>
-              </li>
             </ul>
           </div>
         </div>
+      </nav>
     </header>
     <main>
       <div class="container">
