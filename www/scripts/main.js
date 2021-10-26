@@ -3,7 +3,6 @@ const buttonDownload = document.getElementById('buttonDownload');
 const buttonOpen = document.getElementById('buttonOpen');
 const formFile = document.getElementById('formFile');
 const messageError = document.getElementById('messageError');
-const alertExperimental = document.getElementById('alertExperimental');
 const renderButtons = document.getElementsByClassName('render-btn');
 const actionButtons = document.getElementsByClassName('action-btn');
 const buttonValidate = document.getElementById('buttonValidate');
@@ -31,11 +30,6 @@ function getDownloadFilename(file, format) {
 
   return file.name.replace(/\.[^/.]+$/, '.' + format);
 }
-
-window.setTimeout(function() {
-    var bsAlertExperimental = new bootstrap.Alert(alertExperimental);
-    bsAlertExperimental.close();
-}, 4000);
 
 function reset() {
   alertError.style.display = 'none';
