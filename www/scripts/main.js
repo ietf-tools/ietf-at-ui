@@ -29,7 +29,7 @@ function getDownloadFilename(file, format) {
     format = 'txt';
   }
 
-  return file.name + '.' + format;
+  return file.name.replace(/\.[^/.]+$/, '.' + format);
 }
 
 window.setTimeout(function() {
