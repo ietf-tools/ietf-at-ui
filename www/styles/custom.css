@@ -108,3 +108,26 @@ a:focus, a:hover {
 .nav-link {
   transform: translate(0, 20%);
 }
+
+.diff {
+  font-family: monospace;
+}
+
+.diff td {
+  white-space: pre;
+  vertical-align: top;
+  font-size: 0.86em;
+}
+
+.diff th {
+    text-align: center;
+}
+
+.diff .left { background-color: #EEE; }
+.diff .right { background-color: #FFF; }
+.diff .lblock { background-color: #BFB; }
+.diff .rblock { background-color: #FF8; }
+.diff .delete { background-color: #ACF; }
+.diff .insert { background-color: #8FF; }
+.diff .change { background-color: gray; }
+.diff .header { background-color: orange; }
