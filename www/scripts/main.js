@@ -13,11 +13,14 @@ const accordionItemIdnits = document.getElementById('accordionItemIdnits');
 const listWarnings = document.getElementById('listWarnings');
 const listErrors = document.getElementById('listErrors');
 const preIdnits = document.getElementById('preIdnits');
+const buttonDiff = document.getElementById('buttonDiff');
+const divDiff = document.getElementById('divDiff');
 
 reset();
 
 formFile.addEventListener('change', reset);
 buttonValidate.addEventListener('click', validate);
+buttonDiff.addEventListener('click', diff);
 
 for (let button of renderButtons) {
   button.addEventListener("click", render);
@@ -45,7 +48,8 @@ function reset() {
   accordionItemIdnits.style.display = 'none';
   listWarnings.innerHTML = '';
   listErrors.innerHTML = '';
-  preIdnits.innerHTML ='';
+  preIdnits.innerHTML = '';
+  divDiff.innerHTML = '';
   resetButtons();
 }
 
@@ -162,6 +166,53 @@ function validate() {
           accordionItemIdnits.style.display = 'block';
           preIdnits.innerHTML = json.idnits;
         }
+      }
+    })
+    .catch((error) => {
+      resetButtons();
+      alertError.style.display = 'block';
+      messageError.innerHTML = error;
+    });
+}
+
+function diff() {
+  reset();
+
+  buttonDiff.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>' + buttonDiff.innerHTML;
+  disableButtons();
+
+  const formData = new FormData();
+  const file = formFile.files[0];
+
+  formData.append('file_1', file);
+  formData.append('table', 1);
+
+  const apiCall = 'https://author-tools.ietf.org/api2/iddiff';
+
+  const request = new Request(apiCall, {
+    method: 'POST',
+    body: formData
+  });
+
+  fetch(request)
+    .then(response => response.blob())
+    .then(blob => {
+      if (blob.type == 'application/json') {
+        alertError.style.display = 'block';
+        return blob.text();
+      }
+      else {
+        return blob.text();
+      }
+    })
+    .then(data => {
+      try {
+        resetButtons();
+        data = JSON.parse(data);
+        messageError.innerHTML = data.error;
+      } catch (error) {
+        // diff is successful
+        divDiff.innerHTML = data;
       }
     })
     .catch((error) => {
