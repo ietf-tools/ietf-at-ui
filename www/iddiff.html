@@ -70,8 +70,18 @@
         <div class="row">
           <div>
             <p>
-              This service allows you to compare two Internet-Drafts or RFCs in text format.
+              This service allows you to compare two Internet-Drafts.
+              You can either upload the files or provide the draft name.
+              If the second draft is not provided, the system will use the
+              latest revision from the datatracker, or the previous revision
+              if the latest is the same as provided.
+              The input files must be a valid Internet-Draft in one of the following formats:
             </p>
+            <ul>
+              <li>XML as .xml (automatically recognises v3 as defined in <a href="https://www.rfc-editor.org/info/rfc7991">RFC 7991</a> and v2 as defined in <a href="https://www.rfc-editor.org/info/rfc7749">RFC 7749</a>)</li>
+              <li>Markdown as .md or .mkd (<a href="https://github.com/cabo/kramdown-rfc2629">kramdown-rfc2629</a> and <a href="https://mmark.miek.nl/">mmark</a> dialects are supported)</li>
+              <li>Plain text as .txt</li>
+            </ul>
             <label class="form-label">First Draft</label>
             <ul class="nav nav-tabs" id="ulDraftTabs1" role="tablist">
               <li class="nav-item" role="presentation">
