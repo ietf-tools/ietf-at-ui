@@ -24,7 +24,7 @@
                 <a class="nav-link" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/iddiff.html">iddiff</a>
+                <a class="nav-link active" aria-current="page" href="/iddiff">iddiff</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/doc/">API</a>
@@ -75,35 +75,43 @@
             <label class="form-label">First Draft</label>
             <ul class="nav nav-tabs" id="ulDraftTabs1" role="tablist">
               <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="file-tab1" data-bs-toggle="tab" data-bs-target="#file1" type="button" role="tab" aria-controls="file" aria-selected="true">Upload</button>
+                <button class="nav-link tab-link active" id="file-tab1" data-bs-toggle="tab" data-bs-target="#file1" type="button" role="tab" aria-controls="file" aria-selected="true" data-other="form-tab-id1">Upload</button>
               </li>
               <li class="nav-item" role="presentation">
-                <button class="nav-link" id="name-tab1" data-bs-toggle="tab" data-bs-target="#name1" type="button" role="tab" aria-controls="name" aria-selected="false">Draft Name</button>
+                <button class="nav-link tab-link" id="name-tab1" data-bs-toggle="tab" data-bs-target="#name1" type="button" role="tab" aria-controls="name" aria-selected="false" data-other="form-tab-file1">Draft Name</button>
               </li>
             </ul>
             <div class="tab-content" id="ulDraftTabs1Content">
               <div class="tab-pane fade show active" id="file1" role="tabpanel" aria-labelledby="file-tab1">
-                <input class="form-control form-control-lg" id="formFile1" type="file" accept=".xml,.md,.mkd,.txt">
+                <form id="form-tab-file1">
+                  <input class="form-control form-control-lg" id="formFile1" type="file" accept=".xml,.md,.mkd,.txt">
+                </form>
               </div>
               <div class="tab-pane fade" id="name1" role="tabpanel" aria-labelledby="name-tab1">
-                <input class="form-control form-control-lg" id="formID1" type="text" placeholder="ietf-draft-name">
+                <form id="form-tab-id1">
+                  <input class="form-control form-control-lg" id="formID1" type="text" placeholder="ietf-draft-name">
+                </form>
               </div>
             </div>
             <label class="form-label">Second Draft</label>
             <ul class="nav nav-tabs" id="ulDraftTabs2" role="tablist">
               <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="file-tab2" data-bs-toggle="tab" data-bs-target="#file2" type="button" role="tab" aria-controls="file2" aria-selected="true">Upload</button>
+                <button class="nav-link tab-link active" id="file-tab2" data-bs-toggle="tab" data-bs-target="#file2" type="button" role="tab" aria-controls="file2" aria-selected="true" data-other="form-tab-id2">Upload</button>
               </li>
               <li class="nav-item" role="presentation">
-                <button class="nav-link" id="name-tab2" data-bs-toggle="tab" data-bs-target="#name2" type="button" role="tab" aria-controls="name2" aria-selected="false">Draft Name</button>
+                <button class="nav-link tab-link" id="name-tab2" data-bs-toggle="tab" data-bs-target="#name2" type="button" role="tab" aria-controls="name2" aria-selected="false" data-other="form-tab-file2">Draft Name</button>
               </li>
             </ul>
             <div class="tab-content" id="ulDraftTabs2Content">
               <div class="tab-pane fade show active" id="file2" role="tabpanel" aria-labelledby="file-tab2">
-                <input class="form-control form-control-lg" id="formFile2" type="file" accept=".xml,.md,.mkd,.txt">
+                <form id="form-tab-file2">
+                  <input class="form-control form-control-lg" id="formFile2" type="file" accept=".xml,.md,.mkd,.txt">
+                </form>
               </div>
               <div class="tab-pane fade" id="name2" role="tabpanel" aria-labelledby="name-tab2">
-                <input class="form-control form-control-lg" id="formID2" type="text" placeholder="ietf-draft-name">
+                <form id="form-tab-id2">
+                  <input class="form-control form-control-lg" id="formID2" type="text" placeholder="ietf-draft-name">
+                </form>
               </div>
             </div>
           </div>

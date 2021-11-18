@@ -5,12 +5,22 @@ const formID1 = document.getElementById('formID1');
 const formID2 = document.getElementById('formID2');
 const messageError = document.getElementById('messageError');
 const buttonCompare = document.getElementById('buttonCompare');
+const tabLinks = document.getElementsByClassName('tab-link');
 
 reset();
 
 formFile1.addEventListener('change', reset);
 formFile2.addEventListener('change', reset);
 buttonCompare.addEventListener('click', compare);
+for (let tabLink of tabLinks) {
+  tabLink.addEventListener('click', resetOther);
+}
+
+function resetOther(event) {
+  const clickedItem = event.target || event.srcElement;
+  const form = document.getElementById(clickedItem.dataset.other);
+  form.reset();
+}
 
 function reset() {
   alertError.style.display = 'none';
@@ -23,7 +33,7 @@ function resetButtons() {
   buttonCompare.innerText = buttonCompare.dataset.title;
 }
 
-function compare(event) {
+function compare() {
   reset();
 
   buttonCompare.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>' + buttonCompare.innerHTML;
