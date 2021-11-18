@@ -72,10 +72,40 @@
             <p>
               This service allows you to compare two Internet-Drafts or RFCs in text format.
             </p>
-            <label for="formFile1" class="form-label">First Draft</label>
-            <input class="form-control form-control-lg" id="formFile1" type="file" accept=".txt" required>
-            <label for="formFile2" class="form-label">Second Draft</label>
-            <input class="form-control form-control-lg" id="formFile2" type="file" accept=".txt" required>
+            <label class="form-label">First Draft</label>
+            <ul class="nav nav-tabs" id="ulDraftTabs1" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="file-tab1" data-bs-toggle="tab" data-bs-target="#file1" type="button" role="tab" aria-controls="file" aria-selected="true">Upload</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="name-tab1" data-bs-toggle="tab" data-bs-target="#name1" type="button" role="tab" aria-controls="name" aria-selected="false">Draft Name</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="ulDraftTabs1Content">
+              <div class="tab-pane fade show active" id="file1" role="tabpanel" aria-labelledby="file-tab1">
+                <input class="form-control form-control-lg" id="formFile1" type="file" accept=".xml,.md,.mkd,.txt">
+              </div>
+              <div class="tab-pane fade" id="name1" role="tabpanel" aria-labelledby="name-tab1">
+                <input class="form-control form-control-lg" id="formID1" type="text" placeholder="ietf-draft-name">
+              </div>
+            </div>
+            <label class="form-label">Second Draft</label>
+            <ul class="nav nav-tabs" id="ulDraftTabs2" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="file-tab2" data-bs-toggle="tab" data-bs-target="#file2" type="button" role="tab" aria-controls="file2" aria-selected="true">Upload</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="name-tab2" data-bs-toggle="tab" data-bs-target="#name2" type="button" role="tab" aria-controls="name2" aria-selected="false">Draft Name</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="ulDraftTabs2Content">
+              <div class="tab-pane fade show active" id="file2" role="tabpanel" aria-labelledby="file-tab2">
+                <input class="form-control form-control-lg" id="formFile2" type="file" accept=".xml,.md,.mkd,.txt">
+              </div>
+              <div class="tab-pane fade" id="name2" role="tabpanel" aria-labelledby="name-tab2">
+                <input class="form-control form-control-lg" id="formID2" type="text" placeholder="ietf-draft-name">
+              </div>
+            </div>
           </div>
         </div>
         <div class="row mt-2">

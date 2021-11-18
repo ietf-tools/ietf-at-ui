@@ -1,6 +1,8 @@
 const alertError  = document.getElementById('alertError');
 const formFile1 = document.getElementById('formFile1');
 const formFile2 = document.getElementById('formFile2');
+const formID1 = document.getElementById('formID1');
+const formID2 = document.getElementById('formID2');
 const messageError = document.getElementById('messageError');
 const buttonCompare = document.getElementById('buttonCompare');
 
@@ -9,7 +11,6 @@ reset();
 formFile1.addEventListener('change', reset);
 formFile2.addEventListener('change', reset);
 buttonCompare.addEventListener('click', compare);
-
 
 function reset() {
   alertError.style.display = 'none';
@@ -34,6 +35,12 @@ function compare(event) {
 
   formData.append('file_1', file1);
   formData.append('file_2', file2);
+  if (formID1.value.length > 0) {
+    formData.append('id_1', formID1.value);
+  }
+  if (formID2.value.length > 0) {
+    formData.append('id_2', formID2.value);
+  }
 
   const apiCall = 'https://author-tools.ietf.org/api2/iddiff';
 
