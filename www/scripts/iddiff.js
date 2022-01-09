@@ -11,9 +11,18 @@ reset();
 
 formFile1.addEventListener('change', reset);
 formFile2.addEventListener('change', reset);
+formID1.addEventListener('keydown', submit);
+formID2.addEventListener('keydown', submit);
 buttonCompare.addEventListener('click', compare);
 for (let tabLink of tabLinks) {
   tabLink.addEventListener('click', resetOther);
+}
+
+function submit(event) {
+  if (event.key == 'Enter') {
+    event.preventDefault();
+    compare();
+  }
 }
 
 function resetOther(event) {
