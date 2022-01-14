@@ -9,6 +9,12 @@ const tabLinks = document.getElementsByClassName('tab-link');
 
 reset();
 
+// enable Bootstrap/Popper tooltips
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle2="tooltip"]'));
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl);
+});
+
 formFile1.addEventListener('change', reset);
 formFile2.addEventListener('change', reset);
 formID1.addEventListener('keydown', submit);
