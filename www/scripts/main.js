@@ -18,6 +18,12 @@ const divDiff = document.getElementById('divDiff');
 
 reset();
 
+// enable Bootstrap/Popper tooltips
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl);
+});
+
 formFile.addEventListener('change', reset);
 buttonValidate.addEventListener('click', validate);
 buttonDiff.addEventListener('click', diff);
