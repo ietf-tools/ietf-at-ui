@@ -79,26 +79,27 @@
               <li>Plain text as .txt</li>
             </ul>
             <label for="formFile" class="form-label">Input file</label>
-            <input class="form-control form-control-lg" id="formFile" type="file" accept=".xml,.md,.mkd,.txt" required>
+            <input class="form-control form-control-lg" id="formFile" type="file" accept=".xml,.md,.mkd,.txt" required data-bs-toggle="tooltip" data-bs-placement="bottom" title="Select input file. Input file can be XML, Markdown (kramdown-rfc2629 or mmark) or text.">
           </div>
         </div>
         <div class="row mt-2">
           <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-            <button class="render-btn action-btn btn btn-primary btn-lg flex-grow-1" type="button" value="text" data-title="Text">Text</button>
-            <button class="render-btn action-btn btn btn-primary btn-lg flex-grow-1" type="button" value="html" data-title="HTML">HTML</button>
-            <button class="render-btn action-btn btn btn-primary btn-lg flex-grow-1" type="button" value="xml" data-title="XML">XML</button>
-            <button class="render-btn action-btn btn btn-primary btn-lg flex-grow-1" type="button" value="pdf" data-title="PDF">PDF</button>
-            <button class="diff-btn action-btn btn btn-success btn-lg flex-grow-1" type="button" data-title="Diff" id="buttonDiff">Diff</button>
-            <button class="validate-btn action-btn btn btn-success btn-lg flex-grow-1" type="button" data-title="Validate (idnits)" id="buttonValidate">Validate (idnits)</button>
+            <button class="render-btn action-btn btn btn-primary btn-lg flex-grow-1" type="button" value="text" data-title="Text" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Generate a formatted text file with proper page breaks.">Text</button>
+            <button class="render-btn action-btn btn btn-primary btn-lg flex-grow-1" type="button" value="html" data-title="HTML" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Generate a formatted HTML file.">HTML</button>
+            <button class="render-btn action-btn btn btn-primary btn-lg flex-grow-1" type="button" value="xml" data-title="XML" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Generate a xml2rfc version 3 XML file.">XML</button>
+            <button class="render-btn action-btn btn btn-primary btn-lg flex-grow-1" type="button" value="pdf" data-title="PDF" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Generate a formatted PDF file.">PDF</button>
+            <button class="diff-btn action-btn btn btn-success btn-lg flex-grow-1" type="button" data-title="Diff with latest" id="buttonDiff" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Compare with the latest revision of the draft available on datatracker.">Diff with latest</button>
+            <button class="validate-btn action-btn btn btn-success btn-lg flex-grow-1" type="button" data-title="Validate (idnits)" id="buttonValidate" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Validate the xml2rfc version 3 of the provided file with idnits and xml2rfc.">Validate (idnits)</button>
           </div>
         </div>
         <div class="row mt-2">
           <div class="d-grid gap-2">
-            <a href="#" class="btn btn-success btn-lg" id="buttonDownload">Download</a>
+            <a href="#" class="btn btn-success btn-lg" id="buttonDownload" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Download the output file.">Download</a>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-              <a href="#" class="btn btn-link" id="buttonOpen">Open in web browser</a>
+              <a href="#" class="btn btn-link" id="buttonOpen" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Open the output file in your web browser.">Open in web browser</a>
             </div>
           </div>
+        </div>
         <div class="row mt-2 diff" id="divDiff">
         </div>
         <div class="row mt-2">
@@ -137,6 +138,26 @@
                 <div class="accordion-body">
                   <pre id="preIdnits" class="pre-scrollable"></pre>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Compare drafts</h5>
+                <p class="card-text">Replacement for rfcdiff is available under iddiff.</p>
+                <a href="/iddiff" class="btn btn-primary">iddiff</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">ABNF (Augmented Backus-Naur form) Parser</h5>
+                <p class="card-text">Replacement for BAP is coming soon.</p>
+                <a href="https://tools.ietf.org/tools/bap/abnf.cgi" class="btn btn-primary">BAP (on tools.ietf.org)</a>
               </div>
             </div>
           </div>
