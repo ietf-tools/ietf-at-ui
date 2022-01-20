@@ -58,6 +58,14 @@ function compare() {
   const file1 = formFile1.files[0];
   const file2 = formFile2.files[0];
 
+  if (!file1 && !file2 && formID1.value.length > 0) {
+    url = '/diff?id_1=' + formID1.value;
+    if (formID2.value.length > 0) {
+      url += '&id_2=' + formID2.value;
+    }
+    window.location.href = url;
+  }
+
   formData.append('file_1', file1);
   formData.append('file_2', file2);
   if (formID1.value.length > 0) {
