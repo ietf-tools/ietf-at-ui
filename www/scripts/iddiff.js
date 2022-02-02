@@ -3,6 +3,8 @@ const formFile1 = document.getElementById('formFile1');
 const formFile2 = document.getElementById('formFile2');
 const formID1 = document.getElementById('formID1');
 const formID2 = document.getElementById('formID2');
+const formURL1 = document.getElementById('formURL1');
+const formURL2 = document.getElementById('formURL2');
 const messageError = document.getElementById('messageError');
 const buttonCompare = document.getElementById('buttonCompare');
 const tabLinks = document.getElementsByClassName('tab-link');
@@ -19,6 +21,8 @@ formFile1.addEventListener('change', reset);
 formFile2.addEventListener('change', reset);
 formID1.addEventListener('keydown', submit);
 formID2.addEventListener('keydown', submit);
+formURL1.addEventListener('keydown', submit);
+formURL2.addEventListener('keydown', submit);
 buttonCompare.addEventListener('click', compare);
 for (let tabLink of tabLinks) {
   tabLink.addEventListener('click', resetOther);
@@ -33,7 +37,12 @@ function submit(event) {
 
 function resetOther(event) {
   const clickedItem = event.target || event.srcElement;
-  const form = document.getElementById(clickedItem.dataset.other);
+  others = clickedItem.dataset.others.split(',');
+  others.forEach(resetForm);
+}
+
+function resetForm(form_id) {
+  const form = document.getElementById(form_id);
   form.reset();
 }
 
@@ -58,12 +67,27 @@ function compare() {
   const file1 = formFile1.files[0];
   const file2 = formFile2.files[0];
 
-  if (!file1 && !file2 && formID1.value.length > 0) {
-    url = '/diff?id_1=' + formID1.value;
-    if (formID2.value.length > 0) {
-      url += '&id_2=' + formID2.value;
+  if (!file1 && !file2) {
+    if (formID1.value.length > 0) {
+      url = '/diff?id_1=' + formID1.value;
+      if (formID2.value.length > 0) {
+        url += '&id_2=' + formID2.value;
+      }
+      else if (formURL2.value.length > 0) {
+        url += '&url_2=' + formURL2.value;
+      }
+      window.location.href = url;
     }
-    window.location.href = url;
+    else if (formURL1.value.length > 0) {
+      url = '/diff?url_1=' + formURL1.value;
+      if (formURL2.value.length > 0) {
+        url += '&url_2=' + formURL2.value;
+      }
+      else if (formID2.value.length > 0) {
+        url += '&id_2=' + formID2.value;
+      }
+      window.location.href = url;
+    }
   }
 
   formData.append('file_1', file1);
@@ -73,6 +97,12 @@ function compare() {
   }
   if (formID2.value.length > 0) {
     formData.append('id_2', formID2.value);
+  }
+  if (formURL1.value.length > 0) {
+    formData.append('url_1', formURL1.value);
+  }
+  if (formURL2.value.length > 0) {
+    formData.append('url_2', formURL2.value);
   }
 
   const apiCall = 'https://author-tools.ietf.org/api2/iddiff';
