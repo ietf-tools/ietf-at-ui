@@ -2,6 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /api2/
+Disallow: /diff
 
 Sitemap: https://author-tools.ietf.org/sitemap.xml
 
