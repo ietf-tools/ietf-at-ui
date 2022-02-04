@@ -69,9 +69,9 @@ function compare() {
 
   if (!file1 && !file2) {
     if (formID1.value.length > 0) {
-      url = '/diff?id_1=' + formID1.value;
+      url = '/diff?doc_1=' + formID1.value;
       if (formID2.value.length > 0) {
-        url += '&id_2=' + formID2.value;
+        url += '&doc_2=' + formID2.value;
       }
       else if (formURL2.value.length > 0) {
         url += '&url_2=' + formURL2.value;
@@ -84,7 +84,7 @@ function compare() {
         url += '&url_2=' + formURL2.value;
       }
       else if (formID2.value.length > 0) {
-        url += '&id_2=' + formID2.value;
+        url += '&doc_2=' + formID2.value;
       }
       window.location.href = url;
     }
@@ -93,10 +93,10 @@ function compare() {
   formData.append('file_1', file1);
   formData.append('file_2', file2);
   if (formID1.value.length > 0) {
-    formData.append('id_1', formID1.value);
+    formData.append('doc_1', formID1.value);
   }
   if (formID2.value.length > 0) {
-    formData.append('id_2', formID2.value);
+    formData.append('doc_2', formID2.value);
   }
   if (formURL1.value.length > 0) {
     formData.append('url_1', formURL1.value);
