@@ -70,25 +70,25 @@
         <div class="row">
           <div>
             <p>
-              This service allows you to compare two Internet-Drafts.
-              You can either upload the files or provide the draft name.
-              If the second draft is not provided, the system will use the
+              This service allows you to compare Internet-Drafts and RFCs.
+              You can either upload the files or provide the Internet-Draft or RFC document name.
+              If the second document is not provided, the system will use the
               latest revision from the datatracker, or the previous revision
               if the latest is the same as provided.
-              The input files must be a valid Internet-Draft in one of the following formats:
+              The input files must be a valid Internet-Draft or RFC in one of the following formats:
             </p>
             <ul>
               <li>XML as .xml (automatically recognises v3 as defined in <a href="https://www.rfc-editor.org/info/rfc7991">RFC 7991</a> and v2 as defined in <a href="https://www.rfc-editor.org/info/rfc7749">RFC 7749</a>)</li>
               <li>Markdown as .md or .mkd (<a href="https://github.com/cabo/kramdown-rfc2629">kramdown-rfc2629</a> and <a href="https://mmark.miek.nl/">mmark</a> dialects are supported)</li>
               <li>Plain text as .txt</li>
             </ul>
-            <label class="form-label">First Draft</label>
+            <label class="form-label">First Document</label>
             <ul class="nav nav-tabs" id="ulDraftTabs1" role="tablist">
               <li class="nav-item" role="presentation">
                 <button class="nav-link tab-link active" id="file-tab1" data-bs-toggle="tab" data-bs-target="#file1" type="button" role="tab" aria-controls="file1" aria-selected="true" data-others="form-tab-id1,form-tab-url1" data-bs-toggle2="tooltip" data-bs-placement="bottom">Upload File</button>
               </li>
               <li class="nav-item" role="presentation">
-                <button class="nav-link tab-link" id="name-tab1" data-bs-toggle="tab" data-bs-target="#name1" type="button" role="tab" aria-controls="name1" aria-selected="false" data-others="form-tab-file1,form-tab-url1" data-bs-toggle2="tooltip" data-bs-placement="bottom">Draft Name</button>
+                <button class="nav-link tab-link" id="name-tab1" data-bs-toggle="tab" data-bs-target="#name1" type="button" role="tab" aria-controls="name1" aria-selected="false" data-others="form-tab-file1,form-tab-url1" data-bs-toggle2="tooltip" data-bs-placement="bottom">Document Name</button>
               </li>
               <li class="nav-item" role="presentation">
                 <button class="nav-link tab-link" id="url-tab1" data-bs-toggle="tab" data-bs-target="#url1" type="button" role="tab" aria-controls="url1" aria-selected="false" data-others="form-tab-file1,form-tab-id1" data-bs-toggle2="tooltip" data-bs-placement="bottom">URL</button>
@@ -102,22 +102,22 @@
               </div>
               <div class="tab-pane fade" id="name1" role="tabpanel" aria-labelledby="name-tab1">
                 <form id="form-tab-id1">
-                  <input class="form-control form-control-lg" id="formID1" type="text" placeholder="draft-ietf-wg-example-01" data-bs-toggle2="tooltip" data-bs-placement="bottom" title="Provide a draft name. Example: rfc7749, rfc 7749, draft-iab-xml2rfcv2-02">
+                  <input class="form-control form-control-lg" id="formID1" type="text" placeholder="draft-ietf-wg-example-01" data-bs-toggle2="tooltip" data-bs-placement="bottom" title="Provide a document name. Example: rfc7749, rfc 7749, draft-iab-xml2rfcv2-02">
                 </form>
               </div>
               <div class="tab-pane fade" id="url1" role="tabpanel" aria-labelledby="url-tab1">
                 <form id="form-tab-url1">
-                  <input class="form-control form-control-lg" id="formURL1" type="text" placeholder="https://www.ietf.org/archive/id/draft-ietf-wg-example-01.txt" data-bs-toggle2="tooltip" data-bs-placement="bottom" title="Provide a draft URL. See the About page for a list of allowed domains.">
+                  <input class="form-control form-control-lg" id="formURL1" type="text" placeholder="https://www.ietf.org/archive/id/draft-ietf-wg-example-01.txt" data-bs-toggle2="tooltip" data-bs-placement="bottom" title="Provide an Internet-Draft/RFC URL. See the About page for a list of allowed domains.">
                 </form>
               </div>
             </div>
-            <label class="form-label">Second Draft (Optional)</label>
+            <label class="form-label">Second Document (Optional)</label>
             <ul class="nav nav-tabs" id="ulDraftTabs2" role="tablist">
               <li class="nav-item" role="presentation">
                 <button class="nav-link tab-link active" id="file-tab2" data-bs-toggle="tab" data-bs-target="#file2" type="button" role="tab" aria-controls="file2" aria-selected="true" data-others="form-tab-id2,form-tab-url2" data-bs-toggle2="tooltip" data-bs-placement="bottom">Upload File</button>
               </li>
               <li class="nav-item" role="presentation">
-                <button class="nav-link tab-link" id="name-tab2" data-bs-toggle="tab" data-bs-target="#name2" type="button" role="tab" aria-controls="name2" aria-selected="false" data-others="form-tab-file2,form-tab-url2" data-bs-toggle2="tooltip" data-bs-placement="bottom">Draft Name</button>
+                <button class="nav-link tab-link" id="name-tab2" data-bs-toggle="tab" data-bs-target="#name2" type="button" role="tab" aria-controls="name2" aria-selected="false" data-others="form-tab-file2,form-tab-url2" data-bs-toggle2="tooltip" data-bs-placement="bottom">Document Name</button>
               </li>
               <li class="nav-item" role="presentation">
                 <button class="nav-link tab-link" id="url-tab2" data-bs-toggle="tab" data-bs-target="#url2" type="button" role="tab" aria-controls="url2" aria-selected="false" data-others="form-tab-file2,form-tab-id2" data-bs-toggle2="tooltip" data-bs-placement="bottom">URL</button>
@@ -131,12 +131,12 @@
               </div>
               <div class="tab-pane fade" id="name2" role="tabpanel" aria-labelledby="name-tab2">
                 <form id="form-tab-id2">
-                  <input class="form-control form-control-lg" id="formID2" type="text" placeholder="draft-ietf-wg-example-02" data-bs-toggle2="tooltip" data-bs-placement="bottom" title="Provide a draft name. Example: rfc7749, rfc 7749, draft-iab-xml2rfcv2-02">
+                  <input class="form-control form-control-lg" id="formID2" type="text" placeholder="draft-ietf-wg-example-02" data-bs-toggle2="tooltip" data-bs-placement="bottom" title="Provide a document name. Example: rfc7749, rfc 7749, draft-iab-xml2rfcv2-02">
                 </form>
               </div>
               <div class="tab-pane fade" id="url2" role="tabpanel" aria-labelledby="url-tab2">
                 <form id="form-tab-url2">
-                  <input class="form-control form-control-lg" id="formURL2" type="text" placeholder="https://www.ietf.org/archive/id/draft-ietf-wg-example-02.txt" data-bs-toggle2="tooltip" data-bs-placement="bottom" title="Provide a draft URL. See the About page for a list of allowed domains.">
+                  <input class="form-control form-control-lg" id="formURL2" type="text" placeholder="https://www.ietf.org/archive/id/draft-ietf-wg-example-02.txt" data-bs-toggle2="tooltip" data-bs-placement="bottom" title="Provide an Internet-Draft/RFC URL. See the About page for a list of allowed domains.">
                 </form>
               </div>
             </div>
@@ -144,7 +144,7 @@
         </div>
         <div class="row mt-2">
           <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-            <button class="btn btn-primary btn-lg flex-grow-1" type="button" value="compare" id="buttonCompare" data-title="Compare" data-bs-toggle2="tooltip" data-bs-placement="bottom" title="Compare two drafts.">Compare</button>
+            <button class="btn btn-primary btn-lg flex-grow-1" type="button" value="compare" id="buttonCompare" data-title="Compare" data-bs-toggle2="tooltip" data-bs-placement="bottom">Compare</button>
           </div>
         </div>
       </div>
