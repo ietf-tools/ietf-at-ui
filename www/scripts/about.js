@@ -15,7 +15,7 @@ fetch(request)
   .then(function(json) {
     document.getElementById('spanIetfat').innerHTML = json.versions.author_tools_api;
     document.getElementById('spanXml2rfc').innerHTML = json.versions.xml2rfc;
-    document.getElementById('spanKramdown').innerHTML = json.versions['kramdown-rfc2629'];
+    document.getElementById('spanKramdown').innerHTML = json.versions['kramdown-rfc'];
     document.getElementById('spanMmark').innerHTML = json.versions.mmark;
     document.getElementById('spanId2xml').innerHTML = json.versions.id2xml;
     document.getElementById('spanIdnits').innerHTML = json.versions.idnits;
