@@ -7,6 +7,7 @@ const formURL1 = document.getElementById('formURL1');
 const formURL2 = document.getElementById('formURL2');
 const messageError = document.getElementById('messageError');
 const buttonCompare = document.getElementById('buttonCompare');
+const buttonWdiff = document.getElementById('buttonWdiff');
 const tabLinks = document.getElementsByClassName('tab-link');
 
 reset();
@@ -24,6 +25,7 @@ formID2.addEventListener('keydown', submit);
 formURL1.addEventListener('keydown', submit);
 formURL2.addEventListener('keydown', submit);
 buttonCompare.addEventListener('click', compare);
+buttonWdiff.addEventListener('click', compare);
 for (let tabLink of tabLinks) {
   tabLink.addEventListener('click', resetOther);
 }
@@ -55,13 +57,22 @@ function reset() {
 function resetButtons() {
   buttonCompare.disabled = false;
   buttonCompare.innerText = buttonCompare.dataset.title;
+  buttonWdiff.disabled = false;
+  buttonWdiff.innerText = buttonWdiff.dataset.title;
 }
 
-function compare() {
+function disableButtons() {
+  buttonCompare.disabled = true;
+  buttonWdiff.disabled = true;
+}
+
+function compare(event) {
   reset();
 
-  buttonCompare.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>' + buttonCompare.innerHTML;
-  buttonCompare.disabled = true;
+  var button = event.target || event.srcElement;
+
+  button.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>' + button.innerHTML;
+  disableButtons();
 
   const formData = new FormData();
   const file1 = formFile1.files[0];
@@ -76,6 +87,9 @@ function compare() {
       else if (formURL2.value.length > 0) {
         url += '&url_2=' + formURL2.value;
       }
+      if (button.value == 'wdiff') {
+        url += '&wdiff=1'
+      }
       window.location.href = url;
     }
     else if (formURL1.value.length > 0) {
@@ -85,6 +99,9 @@ function compare() {
       }
       else if (formID2.value.length > 0) {
         url += '&doc_2=' + formID2.value;
+      }
+      if (button.value == 'wdiff') {
+        url += '&wdiff=1'
       }
       window.location.href = url;
     }
@@ -103,6 +120,9 @@ function compare() {
   }
   if (formURL2.value.length > 0) {
     formData.append('url_2', formURL2.value);
+  }
+  if (button.value == 'wdiff') {
+    formData.append('wdiff', 1);
   }
 
   const apiCall = 'https://author-tools.ietf.org/api2/iddiff';
