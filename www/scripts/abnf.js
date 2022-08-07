@@ -2,6 +2,7 @@ const formInput = document.getElementById('formInput');
 const formTextAreaInput = document.getElementById('formTextAreaInput');
 const buttonExtract = document.getElementById('buttonExtract');
 const buttonParse = document.getElementById('buttonParse');
+const accordionAbnfParse = document.getElementById('accordionAbnfParse');
 const accordionItemErrors = document.getElementById('accordionItemErrors');
 const preErrors = document.getElementById('preErrors');
 const accordionItemAbnf = document.getElementById('accordionItemAbnf');
@@ -93,5 +94,6 @@ function parse() {
         accordionItemAbnf.style.display = 'block';
         preAbnf.innerHTML = json.abnf;
       }
+      accordionValidation.scrollIntoView();
     });
 }
