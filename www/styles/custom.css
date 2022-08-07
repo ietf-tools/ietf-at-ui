@@ -39,6 +39,10 @@ a:focus, a:hover {
   color: #271673;
 }
 
+textarea.monospace {
+  font-family: monospace;
+}
+
 .error-message {
   white-space: pre-line;
 }
