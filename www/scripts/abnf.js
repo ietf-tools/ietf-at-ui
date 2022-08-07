@@ -94,6 +94,6 @@ function parse() {
         accordionItemAbnf.style.display = 'block';
         preAbnf.innerHTML = json.abnf;
       }
-      accordionValidation.scrollIntoView();
+      accordionAbnfParse.scrollIntoView();
     });
 }
