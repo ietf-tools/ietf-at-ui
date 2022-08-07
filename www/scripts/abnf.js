@@ -50,9 +50,6 @@ function disableButtons() {
 function extract() {
   reset();
 
-  buttonExtract.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>' + buttonExtract.innerHTML;
-  disableButtons();
-
   url = 'https://author-tools.ietf.org/api/abnf/extract?';
 
   try {
