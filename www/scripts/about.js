@@ -22,6 +22,7 @@ fetch(request)
     document.getElementById('spanIddiff').innerHTML = json.versions.iddiff;
     document.getElementById('spanWeasyprint').innerHTML = json.versions.weasyprint;
     document.getElementById('spanAasvg').innerHTML = json.versions.aasvg;
+    document.getElementById('spanBap').innerHTML = json.versions.bap;
   })
   .catch(error => {
       alertError.style.display = 'block';
