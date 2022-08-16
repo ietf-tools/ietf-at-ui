@@ -8,6 +8,10 @@ const formURL2 = document.getElementById('formURL2');
 const messageError = document.getElementById('messageError');
 const buttonCompare = document.getElementById('buttonCompare');
 const buttonWdiff = document.getElementById('buttonWdiff');
+const divDiff = document.getElementById('divDiff');
+const buttonDownload = document.getElementById('buttonDownload');
+const buttonOpen = document.getElementById('buttonOpen');
+const buttonShare = document.getElementById('buttonShare');
 const tabLinks = document.getElementsByClassName('tab-link');
 
 reset();
@@ -51,6 +55,14 @@ function resetForm(form_id) {
 function reset() {
   alertError.style.display = 'none';
   messageError.innerHTML = '';
+  divDiff.innerHTML = '';
+  buttonDownload.style.display = 'none';
+  buttonDownload.setAttribute('download', '');
+  buttonDownload.href = '#';
+  buttonOpen.style.display = 'none';
+  buttonOpen.href = '#';
+  buttonShare.style.display = 'none';
+  buttonShare.href = '#';
   resetButtons();
 }
 
@@ -66,6 +78,64 @@ function disableButtons() {
   buttonWdiff.disabled = true;
 }
 
+function getShareableURL(button) {
+  var url = '';
+
+  if (formID1.value.length > 0) {
+    url = '/diff?doc_1=' + formID1.value;
+    if (formID2.value.length > 0) {
+      url += '&doc_2=' + formID2.value;
+    }
+    else if (formURL2.value.length > 0) {
+      url += '&url_2=' + formURL2.value;
+    }
+  }
+  else if (formURL1.value.length > 0) {
+    url = '/diff?url_1=' + formURL1.value;
+    if (formURL2.value.length > 0) {
+      url += '&url_2=' + formURL2.value;
+    }
+    else if (formID2.value.length > 0) {
+      url += '&doc_2=' + formID2.value;
+    }
+  }
+  else if (formID2.value.length > 0) {
+    url = '/diff?doc_2=' + formID2.value;
+  }
+  else if (formURL2.value.length > 0) {
+    url = '/diff?url_2=' + formURL2.value;
+  }
+
+  if (button.value == 'wdiff') {
+    url += '&wdiff=1'
+  }
+
+  return url;
+}
+
+function getDownloadFilename(file1, file2) {
+    filename = ''
+    if (file1) {
+      filename = file1.name.replace(/\.[^/.]+$/, '');
+    }
+    else if (file2) {
+      filename = file2.name.replace(/\.[^/.]+$/, '');
+    }
+    else if (formID1.value.length > 0) {
+      filename = formID1.value;
+    }
+    else if (formURL1.value.length > 0) {
+      filename = formURL1.value;
+    }
+    else if (formID2.value.length > 0) {
+      filename = formID2.value;
+    }
+    else if (formURL2.value.length > 0) {
+      filename = formURL2.value;
+    }
+    return filename + '.diff.html';
+}
+
 function compare(event) {
   reset();
 
@@ -78,37 +148,9 @@ function compare(event) {
   const file1 = formFile1.files[0];
   const file2 = formFile2.files[0];
 
-  if (!file1 && !file2) {
-    if (formID1.value.length > 0) {
-      url = '/diff?doc_1=' + formID1.value;
-      if (formID2.value.length > 0) {
-        url += '&doc_2=' + formID2.value;
-      }
-      else if (formURL2.value.length > 0) {
-        url += '&url_2=' + formURL2.value;
-      }
-      if (button.value == 'wdiff') {
-        url += '&wdiff=1'
-      }
-      window.location.href = url;
-    }
-    else if (formURL1.value.length > 0) {
-      url = '/diff?url_1=' + formURL1.value;
-      if (formURL2.value.length > 0) {
-        url += '&url_2=' + formURL2.value;
-      }
-      else if (formID2.value.length > 0) {
-        url += '&doc_2=' + formID2.value;
-      }
-      if (button.value == 'wdiff') {
-        url += '&wdiff=1'
-      }
-      window.location.href = url;
-    }
-  }
-
   formData.append('file_1', file1);
   formData.append('file_2', file2);
+
   if (formID1.value.length > 0) {
     formData.append('doc_1', formID1.value);
   }
@@ -140,7 +182,19 @@ function compare(event) {
         return blob.text();
       }
       else {
-        return URL.createObjectURL(blob);
+        data = URL.createObjectURL(blob);
+        buttonDownload.style.display = 'block';
+        buttonDownload.setAttribute('download', getDownloadFilename(file1, file2));
+        buttonDownload.href = data;
+        buttonOpen.style.display = 'block';
+        buttonOpen.href = data;
+
+        if (!file1 && !file2) {
+          buttonShare.style.display = 'block';
+          buttonShare.href = getShareableURL(button);
+        }
+
+        return blob.text();
       }
     })
     .then(data => {
@@ -150,7 +204,14 @@ function compare(event) {
         messageError.innerHTML = data.error;
       } catch (error) {
         // diff is successful
-        window.location.href = data;
+        var html = document.createElement( 'html' );
+        html.innerHTML = data;
+
+        if (button.value == 'wdiff') {
+          divDiff.innerHTML = html.getElementsByTagName('body')[0].innerHTML;
+        } else {
+          divDiff.appendChild(html.getElementsByTagName('table')[0]);
+        }
       }
     })
     .catch((error) => {
