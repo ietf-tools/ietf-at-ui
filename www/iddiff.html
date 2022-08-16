@@ -138,9 +138,18 @@
         </div>
         <div class="row mt-2">
           <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-            <button class="btn btn-primary btn-lg flex-grow-1" type="button" value="compare" id="buttonCompare" data-title="Compare (side by side)" data-bs-toggle2="tooltip" data-bs-placement="bottom" title="Compare two documents side by side.">Compare (side by side)</button>
+            <button class="btn btn-primary btn-lg flex-grow-1" type="button" value="compare" id="buttonCompare" data-title="Compare (side by side)" data-bs-toggle2="tooltip" data-bs-placement="bottom">Compare (side by side)</button>
             <button class="btn btn-primary btn-lg flex-grow-1" type="button" value="wdiff" id="buttonWdiff" data-title="wdiff" data-bs-toggle2="tooltip" data-bs-placement="bottom" title="Get HTML wdiff output.">wdiff</button>
           </div>
+        </div>
+        <div class="row mt-2">
+          <div class="d-grid gap-2 d-md-flex">
+            <a href="#" class="btn btn-success btn-md" id="buttonDownload" data-bs-toggle2="tooltip" data-bs-placement="bottom" title="Download the output file.">Download</a>
+            <a href="#" class="btn btn-success btn-md" id="buttonOpen" data-bs-toggle2="tooltip" data-bs-placement="bottom" title="Open the output file in your web browser.">Open in web browser</a>
+            <a href="#" class="btn btn-success btn-md" id="buttonShare" data-bs-toggle2="tooltip" data-bs-placement="bottom" title="Get a shareable URL when document name or URL is provided.">Get shareable URL</a>
+          </div>
+        </div>
+        <div class="row mt-2 diff" id="divDiff">
         </div>
       </div>
     </main>

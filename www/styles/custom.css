@@ -125,14 +125,20 @@ textarea.monospace {
   font-family: monospace;
 }
 
+.diff table {
+  border-spacing: 0;
+}
+
 .diff td {
+  padding: 0;
   white-space: pre;
   vertical-align: top;
   font-size: 0.86em;
 }
 
 .diff th {
-    text-align: center;
+  padding: 0;
+  text-align: center;
 }
 
 .diff .left { background-color: #EEE; }
@@ -143,3 +149,12 @@ textarea.monospace {
 .diff .insert { background-color: #8FF; }
 .diff .change { background-color: gray; }
 .diff .header { background-color: orange; }
+
+.diff .w-delete {
+  color: #F00;
+  text-decoration: line-through;
+}
+.diff .w-insert {
+  color: #008000;
+  font-weight: bold;
+}
