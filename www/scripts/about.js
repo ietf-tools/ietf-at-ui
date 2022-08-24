@@ -23,6 +23,7 @@ fetch(request)
     document.getElementById('spanWeasyprint').innerHTML = json.versions.weasyprint;
     document.getElementById('spanAasvg').innerHTML = json.versions.aasvg;
     document.getElementById('spanBap').innerHTML = json.versions.bap;
+    document.getElementById('spanSvgcheck').innerHTML = json.versions.svgcheck;
   })
   .catch(error => {
       alertError.style.display = 'block';
