@@ -32,14 +32,6 @@ for (let button of renderButtons) {
   button.addEventListener("click", render);
 }
 
-function getDownloadFilename(file, format) {
-  if (format == 'text') {
-    format = 'txt';
-  }
-
-  return file.name.replace(/\.[^/.]+$/, '.' + format);
-}
-
 function reset() {
   alertError.style.display = 'none';
   buttonDownload.style.display = 'none';
@@ -93,29 +85,42 @@ function render(event) {
   });
 
   fetch(request)
-    .then(response => response.blob())
-    .then(blob => {
-      if (blob.type == 'application/json') {
+    .then(function(response) { return response.json(); })
+    .then(function(json) {
+      resetButtons();
+      if (json.error) {
         alertError.style.display = 'block';
-        return blob.text();
+        messageError.innerHTML = json.error;
       }
-      else {
-        return URL.createObjectURL(blob);
+      if (json.logs) {
+        if (json.logs.warnings && json.logs.warnings.length > 0) {
+          accordionValidation.style.display = 'block';
+          accordionItemWarnings.style.display = 'block';
+          for (var i in json.logs.warnings) {
+            var li  = document.createElement('li');
+            li.innerText = json.logs.warnings[i];
+            listWarnings.appendChild(li);
+          }
+        }
+        if (json.logs.errors && json.logs.errors.length > 0) {
+          accordionValidation.style.display = 'block';
+          accordionItemErrors.style.display = 'block';
+          for (var i in json.logs.errors) {
+            var li  = document.createElement('li');
+            li.innerText = json.logs.errors[i];
+            listErrors.appendChild(li);
+          }
+        }
       }
-    })
-    .then(data => {
-      try {
-        resetButtons();
-        data = JSON.parse(data);
-        messageError.innerHTML = data.error;
-      } catch (error) {
+      if (json.url && json.url.length > 0) {
         // file rendering is successful
+        download_url = json.url + '?download=1'
         buttonDownload.style.display = 'block';
-        buttonDownload.setAttribute('download', getDownloadFilename(file, format));
-        buttonDownload.href = data;
+        buttonDownload.setAttribute('download', download_url);
+        buttonDownload.href = download_url;
         buttonOpen.style.display = 'block';
-        buttonOpen.setAttribute('href', getDownloadFilename(file, format));
-        buttonOpen.href = data;
+        buttonOpen.setAttribute('href', json.url);
+        buttonOpen.href = json.url;
       }
     })
     .catch((error) => {
