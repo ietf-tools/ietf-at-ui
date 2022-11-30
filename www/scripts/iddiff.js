@@ -8,6 +8,8 @@ const formURL2 = document.getElementById('formURL2');
 const messageError = document.getElementById('messageError');
 const buttonCompare = document.getElementById('buttonCompare');
 const buttonWdiff = document.getElementById('buttonWdiff');
+const buttonAbdiff = document.getElementById('buttonAbdiff');
+const buttonChbars = document.getElementById('buttonChbars');
 const divDiff = document.getElementById('divDiff');
 const buttonDownload = document.getElementById('buttonDownload');
 const buttonOpen = document.getElementById('buttonOpen');
@@ -30,6 +32,8 @@ formURL1.addEventListener('keydown', submit);
 formURL2.addEventListener('keydown', submit);
 buttonCompare.addEventListener('click', compare);
 buttonWdiff.addEventListener('click', compare);
+buttonAbdiff.addEventListener('click', compare);
+buttonChbars.addEventListener('click', compare);
 for (let tabLink of tabLinks) {
   tabLink.addEventListener('click', resetOther);
 }
@@ -71,11 +75,17 @@ function resetButtons() {
   buttonCompare.innerText = buttonCompare.dataset.title;
   buttonWdiff.disabled = false;
   buttonWdiff.innerText = buttonWdiff.dataset.title;
+  buttonAbdiff.disabled = false;
+  buttonAbdiff.innerText = buttonAbdiff.dataset.title;
+  buttonChbars.disabled = false;
+  buttonChbars.innerText = buttonChbars.dataset.title;
 }
 
 function disableButtons() {
   buttonCompare.disabled = true;
   buttonWdiff.disabled = true;
+  buttonAbdiff.disabled = true;
+  buttonChbars.disabled = true;
 }
 
 function getShareableURL(button) {
@@ -110,10 +120,18 @@ function getShareableURL(button) {
     url += '&wdiff=1'
   }
 
+  if (button.value == 'abdiff') {
+    url += '&abdiff=1'
+  }
+
+  if (button.value == 'chbars') {
+    url += '&chbars=1'
+  }
+
   return url;
 }
 
-function getDownloadFilename(file1, file2) {
+function getDownloadFilename(file1, file2, type) {
     filename = ''
     if (file1) {
       filename = file1.name.replace(/\.[^/.]+$/, '');
@@ -133,7 +151,12 @@ function getDownloadFilename(file1, file2) {
     else if (formURL2.value.length > 0) {
       filename = formURL2.value;
     }
-    return filename + '.diff.html';
+
+    if (type == 'abdiff' || type == 'chbars') {
+      return filename + '.diff.txt';
+    } else {
+      return filename + '.diff.html';
+    }
 }
 
 function compare(event) {
@@ -166,8 +189,15 @@ function compare(event) {
   if (button.value == 'wdiff') {
     formData.append('wdiff', 1);
   }
+  if (button.value == 'abdiff') {
+    formData.append('abdiff', 1);
+  }
+  if (button.value == 'chbars') {
+    formData.append('chbars', 1);
+  }
 
-  const apiCall = 'https://author-tools.ietf.org/api2/iddiff';
+  //const apiCall = 'https://author-tools.ietf.org/api2/iddiff';
+  const apiCall = 'http://localhost:8888/api/iddiff';
 
   const request = new Request(apiCall, {
     method: 'POST',
@@ -184,7 +214,7 @@ function compare(event) {
       else {
         data = URL.createObjectURL(blob);
         buttonDownload.style.display = 'block';
-        buttonDownload.setAttribute('download', getDownloadFilename(file1, file2));
+        buttonDownload.setAttribute('download', getDownloadFilename(file1, file2, button.value));
         buttonDownload.href = data;
         buttonOpen.style.display = 'block';
         buttonOpen.href = data;
@@ -204,12 +234,19 @@ function compare(event) {
         messageError.innerHTML = data.error;
       } catch (error) {
         // diff is successful
-        var html = document.createElement( 'html' );
-        html.innerHTML = data;
 
         if (button.value == 'wdiff') {
+          var html = document.createElement( 'html' );
+          html.innerHTML = data;
           divDiff.innerHTML = html.getElementsByTagName('body')[0].innerHTML;
+        } else if (button.value == 'abdiff' || button.value == 'chbars') {
+          var pre = document.createElement( 'pre' );
+          var text = document.createTextNode(data)
+          pre.appendChild(text);
+          divDiff.innerHTML = pre.outerHTML;
         } else {
+          var html = document.createElement( 'html' );
+          html.innerHTML = data;
           divDiff.appendChild(html.getElementsByTagName('table')[0]);
         }
       }
