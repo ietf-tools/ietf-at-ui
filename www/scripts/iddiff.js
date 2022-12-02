@@ -196,8 +196,7 @@ function compare(event) {
     formData.append('chbars', 1);
   }
 
-  //const apiCall = 'https://author-tools.ietf.org/api2/iddiff';
-  const apiCall = 'http://localhost:8888/api/iddiff';
+  const apiCall = 'https://author-tools.ietf.org/api2/iddiff';
 
   const request = new Request(apiCall, {
     method: 'POST',
