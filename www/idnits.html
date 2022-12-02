@@ -75,11 +75,27 @@
             </ul>
           </div>
           <div>
-            <div>
-              <label class="form-label">URL</label>
-              <input class="form-control form-control-lg" id="formURL" type="url" placeholder="https://www.ietf.org/archive/id/draft-ietf-wg-example-01.txt" data-bs-toggle2="tooltip" data-bs-placement="bottom" title="Provide an Internet-Draft (ID) URL. See the About page for a list of allowed domains." required>
-              <div class="invalid-feedback">
-                Provide a valid URL. See the About page for <a href="/about.html#allowed-domains">a list of allowed domains</a>.
+            <ul class="nav nav-tabs" id="ulDraftTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link tab-link active" id="file-tab" data-bs-toggle="tab" data-bs-target="#file-div" type="button" role="tab" aria-controls="file-div" aria-selected="true" data-others="form-tab-url" data-bs-toggle2="tooltip" data-bs-placement="bottom">Upload File</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link tab-link" id="url-tab" data-bs-toggle="tab" data-bs-target="#url" type="button" role="tab" aria-controls="url" aria-selected="false" data-others="form-tab-file" data-bs-toggle2="tooltip" data-bs-placement="bottom">URL</button>
+              </li>
+            </ul>
+            <div class="tab-content" id="ulDraftTabsContent">
+              <div class="tab-pane fade show active" id="file-div" role="tabpanel" aria-labelledby="file-tab">
+                <form id="form-tab-file">
+                  <input class="form-control form-control-lg" id="file" name="file" type="file" accept=".xml,.md,.mkd,.txt" data-bs-toggle2="tooltip" data-bs-placement="bottom" title="Select input file. Input file can be XML, Markdown (kramdown-rfc or mmark) or text.">
+                </form>
+              </div>
+              <div class="tab-pane fade" id="url" role="tabpanel" aria-labelledby="url-tab">
+                <form id="form-tab-url">
+                  <input class="form-control form-control-lg" id="formURL" type="url" placeholder="https://www.ietf.org/archive/id/draft-ietf-wg-example-01.txt" data-bs-toggle2="tooltip" data-bs-placement="bottom" title="Provide an Internet-Draft (ID) URL. See the About page for a list of allowed domains." required>
+                  <div class="invalid-feedback">
+                    Provide a valid URL. See the About page for <a href="/about.html#allowed-domains">a list of allowed domains</a>.
+                  </div>
+                </form>
               </div>
             </div>
             <div>
