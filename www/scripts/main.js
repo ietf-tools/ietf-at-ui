@@ -197,6 +197,7 @@ function diff() {
 
   formData.append('file_1', file);
   formData.append('table', 1);
+  formData.append('latest', 1);
 
   const apiCall = 'https://author-tools.ietf.org/api2/iddiff';
 
