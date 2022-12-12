@@ -117,16 +117,18 @@ function getShareableURL(button) {
   }
 
   if (button.value == 'wdiff') {
-    url += '&wdiff=1'
+    url += '&wdiff=1';
   }
 
   if (button.value == 'abdiff') {
-    url += '&abdiff=1'
+    url += '&abdiff=1';
   }
 
   if (button.value == 'chbars') {
-    url += '&chbars=1'
+    url += '&chbars=1';
   }
+
+  url +='&rfcdiff=1';
 
   return url;
 }
