@@ -24,6 +24,7 @@ fetch(request)
     document.getElementById('spanAasvg').innerHTML = json.versions.aasvg;
     document.getElementById('spanBap').innerHTML = json.versions.bap;
     document.getElementById('spanSvgcheck').innerHTML = json.versions.svgcheck;
+    document.getElementById('spanRfcdiff').innerHTML = json.versions.rfcdiff;
   })
   .catch(error => {
       alertError.style.display = 'block';
