@@ -15,6 +15,7 @@ const buttonDownload = document.getElementById('buttonDownload');
 const buttonOpen = document.getElementById('buttonOpen');
 const buttonShare = document.getElementById('buttonShare');
 const tabLinks = document.getElementsByClassName('tab-link');
+const switchRaw = document.getElementById('switchRaw');
 
 reset();
 
@@ -128,6 +129,10 @@ function getShareableURL(button) {
     url += '&chbars=1'
   }
 
+  if (switchRaw.checked) {
+    url += '&raw=1'
+  }
+
   return url;
 }
 
@@ -194,6 +199,9 @@ function compare(event) {
   }
   if (button.value == 'chbars') {
     formData.append('chbars', 1);
+  }
+  if (switchRaw.checked) {
+    formData.append('raw', 1);
   }
 
   const apiCall = 'https://author-tools.ietf.org/api2/iddiff';
