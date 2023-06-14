@@ -56,8 +56,7 @@ function clean(event) {
 
   formData.append('file', file);
 
-  //const apiCall = 'https://author-tools.ietf.org/api2/clean_svg_ids';
-  const apiCall = 'http://localhost:8888/api/clean_svg_ids';
+  const apiCall = 'https://author-tools.ietf.org/api2/clean_svg_ids';
 
   const request = new Request(apiCall, {
     method: 'POST',
