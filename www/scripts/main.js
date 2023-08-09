@@ -10,9 +10,13 @@ const accordionValidation = document.getElementById('accordionValidation');
 const accordionItemWarnings = document.getElementById('accordionItemWarnings');
 const accordionItemErrors = document.getElementById('accordionItemErrors');
 const accordionItemIdnits = document.getElementById('accordionItemIdnits');
+const accordionItemBareUnicode = document.getElementById('accordionItemBareUnicode');
+const accordionItemNonASCII = document.getElementById('accordionItemNonASCII');
 const listWarnings = document.getElementById('listWarnings');
 const listErrors = document.getElementById('listErrors');
+const listBareUnicode = document.getElementById('listBareUnicode');
 const preIdnits = document.getElementById('preIdnits');
+const preNonASCII = document.getElementById('preNonASCII');
 const buttonDiff = document.getElementById('buttonDiff');
 const divDiff = document.getElementById('divDiff');
 
@@ -44,9 +48,13 @@ function reset() {
   accordionItemWarnings.style.display = 'none';
   accordionItemErrors.style.display = 'none';
   accordionItemIdnits.style.display = 'none';
+  accordionItemBareUnicode.style.display = 'none';
+  accordionItemNonASCII.style.display = 'none';
   listWarnings.innerHTML = '';
   listErrors.innerHTML = '';
+  listBareUnicode.innerHTML = '';
   preIdnits.innerHTML = '';
+  preNonASCII.innerHTML = '';
   divDiff.innerHTML = '';
   resetButtons();
 }
@@ -173,9 +181,21 @@ function validate() {
             listErrors.appendChild(li);
           }
         }
+        if (json.bare_unicode && json.bare_unicode.length > 0) {
+          accordionItemBareUnicode.style.display = 'block';
+          for (var i in json.bare_unicode) {
+            var li  = document.createElement('li');
+            li.innerText = json.bare_unicode[i];
+            listBareUnicode.appendChild(li);
+          }
+        }
         if (json.idnits) {
           accordionItemIdnits.style.display = 'block';
           preIdnits.innerHTML = json.idnits;
+        }
+        if (json.non_ascii) {
+          accordionItemNonASCII.style.display = 'block';
+          preNonASCII.innerHTML = json.non_ascii;
         }
       }
     })
