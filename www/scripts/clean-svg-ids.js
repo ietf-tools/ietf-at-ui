@@ -9,18 +9,22 @@ const listWarnings = document.getElementById('listWarnings');
 const listErrors = document.getElementById('listErrors');
 const buttonClean = document.getElementById('buttonClean');
 
-reset();
-
 // enable Bootstrap/Popper tooltips
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl);
 });
+
+reset();
 
 formFile.addEventListener('change', reset);
 buttonClean.addEventListener('click', clean);
 
 function reset() {
+  for (let tooltip of tooltipList) {
+    tooltip.hide();
+  }
+
   alertError.style.display = 'none';
   buttonDownload.style.display = 'none';
   buttonDownload.setAttribute('download', '');

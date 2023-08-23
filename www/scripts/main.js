@@ -20,13 +20,13 @@ const preNonASCII = document.getElementById('preNonASCII');
 const buttonDiff = document.getElementById('buttonDiff');
 const divDiff = document.getElementById('divDiff');
 
-reset();
-
 // enable Bootstrap/Popper tooltips
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl);
 });
+
+reset();
 
 formFile.addEventListener('change', reset);
 buttonValidate.addEventListener('click', validate);
@@ -37,6 +37,10 @@ for (let button of renderButtons) {
 }
 
 function reset() {
+  for (let tooltip of tooltipList) {
+    tooltip.hide();
+  }
+
   alertError.style.display = 'none';
   buttonDownload.style.display = 'none';
   buttonDownload.setAttribute('download', '');

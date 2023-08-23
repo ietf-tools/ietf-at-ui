@@ -16,13 +16,13 @@ const buttonOpen = document.getElementById('buttonOpen');
 const buttonShare = document.getElementById('buttonShare');
 const tabLinks = document.getElementsByClassName('tab-link');
 
-reset();
-
 // enable Bootstrap/Popper tooltips
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle2="tooltip"]'));
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl);
 });
+
+reset();
 
 formFile1.addEventListener('change', reset);
 formFile2.addEventListener('change', reset);
@@ -57,6 +57,10 @@ function resetForm(form_id) {
 }
 
 function reset() {
+  for (let tooltip of tooltipList) {
+    tooltip.hide();
+  }
+
   alertError.style.display = 'none';
   messageError.innerHTML = '';
   divDiff.innerHTML = '';
