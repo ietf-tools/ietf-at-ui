@@ -8,13 +8,13 @@ const preErrors = document.getElementById('preErrors');
 const accordionItemAbnf = document.getElementById('accordionItemAbnf');
 const preAbnf = document.getElementById('preAbnf');
 
-reset();
-
 // enable Bootstrap/Popper tooltips
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle2="tooltip"]'));
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl);
 });
+
+reset();
 
 formInput.addEventListener('keydown', submit);
 buttonExtract.addEventListener('click', extract);
@@ -28,6 +28,10 @@ function submit(event) {
 }
 
 function reset() {
+  for (let tooltip of tooltipList) {
+    tooltip.hide();
+  }
+
   resetButtons();
   accordionItemErrors.style.display = 'none';
   preErrors.innerHTML = '';

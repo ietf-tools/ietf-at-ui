@@ -11,17 +11,21 @@ const preErrors = document.getElementById('preErrors');
 const preSVGCheck = document.getElementById('preSVGCheck');
 const codeParsedSVG = document.getElementById('codeParsedSVG');
 
-reset();
-
 // enable Bootstrap/Popper tooltips
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl);
 });
 
+reset();
+
 buttonCheck.addEventListener('click', parse);
 
 function reset() {
+  for (let tooltip of tooltipList) {
+    tooltip.hide();
+  }
+
   alertError.style.display = 'none';
   accordionItemErrors.style.display = 'none';
   accordionItemSVGCheck.style.display = 'none';
