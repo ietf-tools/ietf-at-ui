@@ -34,9 +34,9 @@ function reset() {
 
   resetButtons();
   accordionItemErrors.style.display = 'none';
-  preErrors.innerHTML = '';
+  preErrors.textContent = '';
   accordionItemAbnf.style.display = 'none';
-  preAbnf.innerHTML = '';
+  preAbnf.textContent = '';
 }
 
 function resetButtons() {
@@ -89,11 +89,11 @@ function parse() {
       reset();
       if (json.errors) {
         accordionItemErrors.style.display = 'block';
-        preErrors.innerHTML = json.errors;
+        preErrors.textContent = json.errors;
       }
       if (json.abnf) {
         accordionItemAbnf.style.display = 'block';
-        preAbnf.innerHTML = json.abnf;
+        preAbnf.textContent = json.abnf;
       }
       accordionAbnfParse.scrollIntoView();
     });

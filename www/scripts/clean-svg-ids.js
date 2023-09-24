@@ -31,12 +31,12 @@ function reset() {
   buttonDownload.href = '#';
   buttonOpen.style.display = 'none';
   buttonOpen.href = '#';
-  messageError.innerHTML = '';
+  messageError.textContent = '';
   accordionValidation.style.display = 'none';
   accordionItemWarnings.style.display = 'none';
   accordionItemErrors.style.display = 'none';
-  listWarnings.innerHTML = '';
-  listErrors.innerHTML = '';
+  listWarnings.textContent = '';
+  listErrors.textContent = '';
   resetButtons();
 }
 
@@ -73,7 +73,7 @@ function clean(event) {
       resetButtons();
       if (json.error) {
         alertError.style.display = 'block';
-        messageError.innerHTML = json.error;
+        messageError.textContent = json.error;
       }
       if (json.url && json.url.length > 0) {
         // file rendering is successful
@@ -89,6 +89,6 @@ function clean(event) {
     .catch((error) => {
       resetButtons();
       alertError.style.display = 'block';
-      messageError.innerHTML = error;
+      messageError.textContent = error;
     });
 }
